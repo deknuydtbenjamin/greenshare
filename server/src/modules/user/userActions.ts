@@ -27,8 +27,7 @@ const readPasswordByUserName: RequestHandler = async (req, res, next) => {
       return;
     }
 
-    req.body.passwordFromDB = userFromDB.password;
-    console.info(req.body);
+    req.body.passwordDB = userFromDB.password;
     next();
   } catch (err) {
     next(err);
