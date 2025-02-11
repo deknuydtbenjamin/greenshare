@@ -53,7 +53,7 @@ export default function Registrer() {
         </div>
         <div>
           <label htmlFor="email">
-            Adresse E-mail
+            Adresse email
             <input
               type="email"
               {...register("email", { required: "Ce champ est obligatoire" })}
