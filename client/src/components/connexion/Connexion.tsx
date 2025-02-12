@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
 import { toast } from "react-toastify";
 import type { UserType } from "../../lib/definitions";
+import style from "./connexion.module.css";
 
 export default function Connexion() {
   const {
@@ -28,12 +29,13 @@ export default function Connexion() {
 
   return (
     <>
-      <section>
+      <section className={style.connexion}>
         <h2>Se connecter</h2>
-        <form onSubmit={handleSubmit(submitLog)}>
-          <label htmlFor="username">
+        <form onSubmit={handleSubmit(submitLog)} className={style.form}>
+          <label htmlFor="username" className={style.champ}>
             Identifiant
             <input
+              className={style.bloc}
               type="text"
               {...register("username", {
                 required: "Champ obligatoire",
@@ -45,9 +47,10 @@ export default function Connexion() {
             />
             {errors.username && <p>{errors.username.message}</p>}
           </label>
-          <label htmlFor="">
+          <label htmlFor="password" className={style.champ}>
             Mot de passe
             <input
+              className={style.bloc}
               type="password"
               {...register("password", {
                 required: "champ obligatoire",
@@ -59,7 +62,9 @@ export default function Connexion() {
             />
             {errors.password && <p>{errors.password.message}</p>}
           </label>
-          <button type="submit">Se connecter</button>
+          <button type="submit" className={style.btn}>
+            Se connecter
+          </button>
         </form>
       </section>
     </>
