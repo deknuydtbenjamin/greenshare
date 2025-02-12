@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import type { CategoryType } from "../../lib/definitions";
+import style from "./category.module.css";
 
 export default function Category() {
   const {
@@ -24,11 +25,13 @@ export default function Category() {
   };
 
   return (
-    <section>
-      <form onSubmit={handleSubmit(formSubmit)}>
-        <label>
-          nom de la categorie
+    <section className={style.category}>
+      <ToastContainer />
+      <form onSubmit={handleSubmit(formSubmit)} className={style.form}>
+        <label className={style.champ}>
+          Nom de la categorie
           <input
+            className={style.bloc}
             type="text"
             {...register("label", {
               required: "champ obligatoire",
@@ -44,7 +47,9 @@ export default function Category() {
           />
           {errors.label && <p>{errors.label.message}</p>}
         </label>
-        <button type="submit">Ajouter</button>
+        <button type="submit" className={style.btn}>
+          Ajouter
+        </button>
       </form>
     </section>
   );
