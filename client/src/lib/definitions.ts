@@ -15,3 +15,13 @@ export type CategoryType = {
   id: number;
   label: string;
 };
+
+export type PlanteType = {
+  id: number;
+  title: string;
+  picture: string;
+  summary: string;
+  watering: number;
+  plant_exhibition: number;
+  category_id: number;
+};

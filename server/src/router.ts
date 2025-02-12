@@ -18,4 +18,8 @@ import categoryRouter from "./routes/category.routes";
 
 router.use("/api/category", categoryRouter);
 
+import planteRouter from "./routes/plante.routes";
+
+router.use("/api/plantes", planteRouter);
+
 export default router;

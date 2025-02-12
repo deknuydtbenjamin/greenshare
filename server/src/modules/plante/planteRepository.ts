@@ -1,0 +1,36 @@
+import { pl } from "@faker-js/faker/.";
+import databaseClient from "../../../database/client";
+
+import type { Result, Rows } from "../../../database/client";
+import type { PlanteType } from "../../lib/definitions";
+
+class PlanteRepository {
+  async create(plante: Omit<PlanteType, "id">) {
+    const [result] = await databaseClient.query<Result>(
+      `
+            INSERT INTO plante (title, picture, summary, watering, plant_exhibition, category_id, user_id)
+            VALUE(?,1,?,?,?,?,?)
+            `,
+      [
+        plante.title,
+        plante.summary,
+        plante.watering,
+        plante.plant_exhibition,
+        plante.category_id,
+        1,
+      ],
+    );
+    return result.insertId;
+  }
+  async read(categoryId: number) {
+    const [rows] = await databaseClient.query<Rows>(
+      `
+      SELECT * 
+      FROM plante
+      Where category_id`,
+      [categoryId],
+    );
+    return rows as PlanteType[];
+  }
+}
+export default new PlanteRepository();

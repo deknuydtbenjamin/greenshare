@@ -1,0 +1,68 @@
+.plante {
+  padding: 2em;
+  border-radius: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  background-color: #f1ece2;
+  border-radius: 1em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: auto;
+  margin: 0 auto;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  align-items: center;
+}
+
+.champ {
+  display: flex;
+  flex-direction: column;
+}
+.bloc {
+  box-shadow: inset 0px 0px 4px rgb(66, 66, 66);
+  height: 1.7em;
+  border: none;
+  border-radius: 0.3em;
+}
+.blocinput {
+  box-shadow: inset 0px 0px 4px rgb(66, 66, 66);
+  height: 1.7em;
+  border: none;
+  border-radius: 0.3em;
+  width: 20em;
+}
+
+.textarea {
+  box-shadow: inset 0px 0px 4px rgb(66, 66, 66);
+  height: 15em;
+  width: 45em;
+  border-radius: 1em;
+  padding: 0.7em;
+}
+.btn {
+  background-color: #90a68b;
+  border: none;
+  height: 2.5em;
+  width: 10em;
+  color: white;
+  cursor: pointer;
+  border-radius: 1em;
+}

@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Category from "./components/category/Category";
 import Connexion from "./components/connexion/Connexion";
+import PlanteForm from "./components/planteForm/PlanteForm";
 import Registrer from "./components/registrer/Registrer";
 import Role from "./components/role/Role";
 
@@ -25,5 +26,9 @@ export const router = createBrowserRouter([
   {
     path: "/categorie",
     element: <Category />,
+  },
+  {
+    path: "/creerplante",
+    element: <PlanteForm />,
   },
 ]);
