@@ -1,5 +1,5 @@
 import databaseClient from "../../../database/client";
-import type { Result } from "../../../database/client";
+import type { Result, Rows } from "../../../database/client";
 
 import type { UserType } from "../../lib/definitions";
 
@@ -16,6 +16,18 @@ class userRepository {
       [user.username, user.email, user.password],
     );
     return result.insertId;
+  }
+
+  async readByUsername(username: string) {
+    const [rows] = await databaseClient.query<Rows>(
+      `
+      SELECT username, password
+      FROM user
+      WHERE username = ?
+      `,
+      [username],
+    );
+    return rows.length ? (rows[0] as UserType) : null;
   }
 }
 

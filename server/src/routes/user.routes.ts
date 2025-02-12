@@ -1,5 +1,8 @@
 import express from "express";
-import { hashPassword } from "../middlewares/hashPassword.middleware";
+import {
+  hashPassword,
+  passwordCompare,
+} from "../middlewares/hashPassword.middleware";
 import userActions from "../modules/user/userActions";
 
 const router = express.Router();
