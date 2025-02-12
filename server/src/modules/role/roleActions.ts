@@ -13,4 +13,21 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { add };
+const browse: RequestHandler = async (req, res, next) => {
+  try {
+    const roleDB = await roleRepository.read();
+    res.status(200).json(roleDB);
+  } catch (err) {
+    next(err);
+  }
+};
+
+const destroy: RequestHandler = async (req, res, next) => {
+  try {
+    const roleId = Number(req.params.id);
+    await roleRepository.delete(roleId);
+    res.sendStatus(204);
+  } catch (error) {}
+};
+
+export default { add, browse, destroy };

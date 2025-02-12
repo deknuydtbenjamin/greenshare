@@ -7,5 +7,6 @@ export type UserType = {
 };
 
 export type RoleType = {
+  id: number;
   label: string;
 };
