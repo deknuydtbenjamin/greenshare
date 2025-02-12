@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.post("/", categoryActions.add);
 
+router.get("/", categoryActions.browse);
+
 export default router;

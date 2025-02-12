@@ -1,8 +1,9 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
-import type { PlanteType } from "../../lib/definitions";
+import type { CategoryType, PlanteType } from "../../lib/definitions";
 import style from "./planteForm.module.css";
 
 export default function PlanteForm() {
@@ -23,6 +24,25 @@ export default function PlanteForm() {
       toast.error("Réessayer plus tard");
     }
   };
+  const [category, setCategory] = useState<CategoryType[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/category`,
+          {},
+        );
+        setCategory(response.data);
+      } catch (error) {
+        toast.error(
+          "Impossible de charger les données, veuillez essayer ultérieurement.",
+          {},
+        );
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <section className={style.plante}>
@@ -54,6 +74,16 @@ export default function PlanteForm() {
           </label>
           <div>
             <label>
+              Categorie
+              <select className={style.bloc} {...register("category_id")}>
+                {category.map((c) => (
+                  <option key={c.id} value={c.id}>
+                    {c.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
               Arrosage
               <select className={style.bloc} {...register("watering")}>
                 <option value="1">💧</option>
@@ -62,7 +92,7 @@ export default function PlanteForm() {
               </select>
             </label>
             <label>
-              exposition
+              Exposition
               <select className={style.bloc} {...register("plant_exhibition")}>
                 <option value="1">☀️</option>
                 <option value="2">⛅️</option>

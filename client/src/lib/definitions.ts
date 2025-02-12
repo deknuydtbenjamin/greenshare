@@ -23,4 +23,5 @@ export type PlanteType = {
   summary: string;
   watering: number;
   plant_exhibition: number;
+  category_id: number;
 };

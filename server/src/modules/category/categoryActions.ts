@@ -12,4 +12,14 @@ const add: RequestHandler = async (req, res, next) => {
     next(err);
   }
 };
-export default { add };
+
+const browse: RequestHandler = async (req, res, next) => {
+  try {
+    const categoryDB = await categoryRepository.read();
+    res.status(200).json(categoryDB);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { add, browse };

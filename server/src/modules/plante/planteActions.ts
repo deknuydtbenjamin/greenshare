@@ -23,4 +23,15 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { add };
+const read: RequestHandler = async (req, res, next) => {
+  try {
+    const categoryId = Number(req.params.id);
+    const plantes = await planteRepository.read(categoryId);
+
+    res.json(plantes);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { add, read };

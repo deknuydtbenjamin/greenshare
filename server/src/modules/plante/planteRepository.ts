@@ -16,11 +16,21 @@ class PlanteRepository {
         plante.summary,
         plante.watering,
         plante.plant_exhibition,
-        1,
+        plante.category_id,
         1,
       ],
     );
     return result.insertId;
+  }
+  async read(categoryId: number) {
+    const [rows] = await databaseClient.query<Rows>(
+      `
+      SELECT * 
+      FROM plante
+      Where category_id`,
+      [categoryId],
+    );
+    return rows as PlanteType[];
   }
 }
 export default new PlanteRepository();
