@@ -9,11 +9,10 @@ class PlanteRepository {
     const [result] = await databaseClient.query<Result>(
       `
             INSERT INTO plante (title, picture, summary, watering, plant_exhibition, category_id, user_id)
-            VALUE(?,?,?,?,?,?,?)
+            VALUE(?,1,?,?,?,?,?)
             `,
       [
         plante.title,
-        plante.picture,
         plante.summary,
         plante.watering,
         plante.plant_exhibition,
