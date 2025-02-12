@@ -5,3 +5,7 @@ export type UserType = {
   password: string;
   confirmPassword: string;
 };
+
+export type RoleType = {
+  label: string;
+};
