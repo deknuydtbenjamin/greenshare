@@ -25,3 +25,7 @@ export type PlanteType = {
   plant_exhibition: number;
   category_id: number;
 };
+
+export type PopUpType = {
+  closePopUp?: () => void;
+};

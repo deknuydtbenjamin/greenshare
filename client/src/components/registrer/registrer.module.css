@@ -1,19 +1,26 @@
 .inscription {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  background-color: #f1ece2;
-  height: auto;
-  width: 20em;
-  padding: 2em;
-  border-radius: 1em;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  backdrop-filter: blur(5px);
 }
 
 .form {
+  background-color: #f1ece2;
   display: flex;
   flex-direction: column;
   gap: 1.5em;
   align-items: center;
+  height: auto;
+  width: 20em;
+  padding: 2em;
+  border-radius: 1em;
 }
 
 .champ {
@@ -35,4 +42,10 @@
   color: white;
   cursor: pointer;
   border-radius: 1em;
+}
+
+.btnclose {
+  border: none;
+  background-color: #f1ece2;
+  cursor: pointer;
 }
