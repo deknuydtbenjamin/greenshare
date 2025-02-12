@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
     element: <Registrer />,
   },
   {
-    path: "/c",
+    path: "/connexion",
     element: <Connexion />,
   },
 ]);

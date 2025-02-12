@@ -28,7 +28,7 @@ export const passwordCompare: RequestHandler = async (req, res, next) => {
 
     if (!isValid) {
       res.status(403).json({
-        message: "Le couple email / mot de passe est incorrect.",
+        message: "L'email ou le mot de passe est incorrect.",
       });
       return;
     }

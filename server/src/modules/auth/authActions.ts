@@ -28,26 +28,4 @@ const logout: RequestHandler = (req, res) => {
   });
 };
 
-// export const verifyToken: RequestHandler = async (req, res, next) => {
-//   try {
-//     const token = req.cookies.auth_token;
-
-//     if (!token) {
-//       res.status(403).json({ authentified: false });
-//     }
-
-//     const verifiedToken = jwt.verify(
-//       req.cookies.auth_token,
-//       process.env.APP_SECRET as string,
-//     );
-//     if (verifiedToken) {
-//       next();
-//     } else {
-//       res.json({ authentified: false });
-//       return;
-//     }
-//   } catch (err) {
-//     next(err);
-//   }
-// };
 export default { login, logout };

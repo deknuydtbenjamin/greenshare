@@ -1,9 +1,5 @@
 import jwt from "jsonwebtoken";
-import type { UserType } from "../lib/definitions";
-
-type PayloadType = {
-  username: string;
-};
+import type { PayloadType } from "../lib/definitions";
 
 export const JwtEncode = async (payload: PayloadType) => {
   return jwt.sign(payload, process.env.APP_SECRET as string, {
