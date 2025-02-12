@@ -1,0 +1,22 @@
+.nav {
+  background-color: #f1ece2;
+  display: flex;
+  padding: 1em;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 1em;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #90a68b;
+  height: 2.5em;
+  width: 10em;
+  color: white;
+  cursor: pointer;
+  border-radius: 1em;
+  margin: 1em;
+  text-decoration: none;
+}
