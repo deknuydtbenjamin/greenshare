@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import type { PlanteType } from "../../lib/definitions";
+import style from "./planteForm.module.css";
+
 export default function PlanteForm() {
   const {
     register,
@@ -23,64 +25,74 @@ export default function PlanteForm() {
   };
 
   return (
-    <section>
+    <section className={style.plante}>
       <ToastContainer />
-      <form onSubmit={handleSubmit(formSubmit)}>
-        <label>
-          titre
-          <input
-            type="text"
-            {...register("title", {
-              required: "champ obligatoire",
-              minLength: {
-                value: 5,
-                message: "Ce champ doit contenir au minimun 5 lettres",
-              },
-              maxLength: {
-                value: 100,
-                message: "Ce champ doit contenir au maximun 100 lettres",
-              },
-            })}
-          />
-          {errors.title && <span>{errors.title.message}</span>}
-        </label>
-        <label>
+      <form onSubmit={handleSubmit(formSubmit)} className={style.form}>
+        <label className={style.champ}>
           image
           <input type="file" {...register("picture")} />
         </label>
-        <label>
-          Presentation
-          <textarea
-            {...register("summary", {
-              required: "champ obligatoire",
-              minLength: {
-                value: 20,
-                message: "Ce champ doit contenir au minimun 20 lettres",
-              },
-              maxLength: {
-                value: 500,
-                message: "Ce champ doit contenir maximun 500 lettres",
-              },
-            })}
-          />
-        </label>
-        <label>
-          Arrosage
-          <select {...register("watering")}>
-            <option value="1">💧</option>
-            <option value="2">💧💧</option>
-            <option value="3">💧💧💧</option>
-          </select>
-        </label>
-        <label>
-          exposition
-          <select {...register("plant_exhibition")}>
-            <option value="1">☀️</option>
-            <option value="2">⛅️</option>
-            <option value="3">☁️</option>
-          </select>
-        </label>
-        <button type="submit">Ajouter une plante</button>
+        <section className={style.info}>
+          <label className={style.champ}>
+            titre
+            <input
+              className={style.blocinput}
+              type="text"
+              {...register("title", {
+                required: "champ obligatoire",
+                minLength: {
+                  value: 5,
+                  message: "Ce champ doit contenir au minimun 5 lettres",
+                },
+                maxLength: {
+                  value: 100,
+                  message: "Ce champ doit contenir au maximun 100 lettres",
+                },
+              })}
+            />
+            {errors.title && <p>{errors.title.message}</p>}
+          </label>
+          <div>
+            <label>
+              Arrosage
+              <select className={style.bloc} {...register("watering")}>
+                <option value="1">💧</option>
+                <option value="2">💧💧</option>
+                <option value="3">💧💧💧</option>
+              </select>
+            </label>
+            <label>
+              exposition
+              <select className={style.bloc} {...register("plant_exhibition")}>
+                <option value="1">☀️</option>
+                <option value="2">⛅️</option>
+                <option value="3">☁️</option>
+              </select>
+            </label>
+          </div>
+          <label className={style.champ}>
+            Presentation
+            <textarea
+              className={style.textarea}
+              {...register("summary", {
+                required: "champ obligatoire",
+                minLength: {
+                  value: 20,
+                  message: "Ce champ doit contenir au minimun 20 lettres",
+                },
+                maxLength: {
+                  value: 500,
+                  message: "Ce champ doit contenir maximun 500 lettres",
+                },
+              })}
+            />
+            {errors.summary && <p>{errors.summary.message}</p>}
+          </label>
+
+          <button type="submit" className={style.btn}>
+            Ajouter une plante
+          </button>
+        </section>
       </form>
     </section>
   );
