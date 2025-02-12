@@ -12,3 +12,8 @@ export type RoleType = {
   id: number;
   label: string;
 };
+
+export type CategoryType = {
+  id: number;
+  label: string;
+};

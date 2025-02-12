@@ -14,4 +14,8 @@ import roleRouter from "./routes/role.routes";
 
 router.use("/api/roles", roleRouter);
 
+import categoryRouter from "./routes/category.routes";
+
+router.use("/api/category", categoryRouter);
+
 export default router;
