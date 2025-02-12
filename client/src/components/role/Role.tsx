@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
 import { toast } from "react-toastify";
 import type { RoleType } from "../../lib/definitions";
+import style from "./role.module.css";
 
 export default function Role() {
   const {
@@ -24,11 +25,12 @@ export default function Role() {
   };
 
   return (
-    <section>
-      <form onSubmit={handleSubmit(roleSubmit)}>
-        <label htmlFor="">
+    <section className={style.role}>
+      <form onSubmit={handleSubmit(roleSubmit)} className={style.form}>
+        <label className={style.champ}>
           Nom du role
           <input
+            className={style.bloc}
             type="text"
             {...register("label", {
               required: "champ obligatoire",
@@ -42,9 +44,14 @@ export default function Role() {
               },
             })}
           />
-          {errors.label && <p>{errors.label.message}</p>}
+          {errors.label && (
+            <p className={style.error}>{errors.label.message}</p>
+          )}
         </label>
-        <button type="submit"> Ajouter </button>
+        <button type="submit" className={style.btn}>
+          {" "}
+          Ajouter{" "}
+        </button>
       </form>
     </section>
   );
