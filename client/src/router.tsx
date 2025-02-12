@@ -5,11 +5,22 @@ import Connexion from "./components/connexion/Connexion";
 import PlanteForm from "./components/planteForm/PlanteForm";
 import Registrer from "./components/registrer/Registrer";
 import Role from "./components/role/Role";
+import DiscoveryPage from "./pages/discoveryPage/DiscoveryPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
+    element: <DiscoveryPage />,
+  },
+
+  {
     element: <App />,
+    children: [
+      {
+        path: "/creerplante",
+        element: <PlanteForm />,
+      },
+    ],
   },
   {
     path: "/r",
@@ -26,9 +37,5 @@ export const router = createBrowserRouter([
   {
     path: "/categorie",
     element: <Category />,
-  },
-  {
-    path: "/creerplante",
-    element: <PlanteForm />,
   },
 ]);
