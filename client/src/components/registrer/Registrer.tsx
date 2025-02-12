@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
 import { toast } from "react-toastify";
 import type { UserType } from "../../lib/definitions";
+import style from "./registrer.module.css";
 
 export default function Registrer() {
   const {
@@ -26,15 +27,16 @@ export default function Registrer() {
   };
 
   return (
-    <section>
-      <form onSubmit={handleSubmit(sendData)}>
+    <section className={style.inscription}>
+      <form onSubmit={handleSubmit(sendData)} className={style.form}>
         <div>
           <h2>Inscription</h2>
         </div>
         <div>
-          <label htmlFor="username">
+          <label htmlFor="username" className={style.champ}>
             Identifiant
             <input
+              className={style.bloc}
               type="text"
               {...register("username", {
                 required: "Ce champ est obligatoire",
@@ -52,9 +54,10 @@ export default function Registrer() {
           </label>
         </div>
         <div>
-          <label htmlFor="email">
+          <label htmlFor="email" className={style.champ}>
             Adresse email
             <input
+              className={style.bloc}
               type="email"
               {...register("email", { required: "Ce champ est obligatoire" })}
             />
@@ -63,9 +66,10 @@ export default function Registrer() {
         </div>
 
         <div>
-          <label htmlFor="password">
+          <label htmlFor="password" className={style.champ}>
             Mot de passe
             <input
+              className={style.bloc}
               type="password"
               {...register("password", {
                 required: "Ce champ est obligatoire",
@@ -85,9 +89,10 @@ export default function Registrer() {
           </label>
         </div>
         <div>
-          <label htmlFor="confirmPassword">
+          <label htmlFor="confirmPassword" className={style.champ}>
             Confirmer le mot de passe
             <input
+              className={style.bloc}
               type="password"
               {...register("confirmPassword", {
                 required: "Ce champ est obligatoire",
@@ -115,7 +120,9 @@ export default function Registrer() {
         </div>
 
         <div>
-          <button type="submit">Je m'inscris</button>
+          <button type="submit" className={style.btn}>
+            Je m'inscris
+          </button>
         </div>
       </form>
     </section>
