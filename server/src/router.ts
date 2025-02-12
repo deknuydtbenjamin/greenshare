@@ -10,4 +10,8 @@ import authRouter from "./routes/auth.routes";
 
 router.use("/api/auth", authRouter);
 
+import roleRouter from "./routes/role.routes";
+
+router.use("/api/roles", roleRouter);
+
 export default router;

@@ -7,3 +7,8 @@ export type UserType = {
 export type PayloadType = {
   username: string;
 };
+
+export type RoleType = {
+  id: number;
+  label: string;
+};
