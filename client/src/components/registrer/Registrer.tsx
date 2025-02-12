@@ -2,10 +2,10 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
 import { toast } from "react-toastify";
-import type { UserType } from "../../lib/definitions";
+import type { PopUpType, UserType } from "../../lib/definitions";
 import style from "./registrer.module.css";
 
-export default function Registrer() {
+export default function Registrer({ closePopUp }: PopUpType) {
   const {
     register,
     handleSubmit,
@@ -124,6 +124,9 @@ export default function Registrer() {
             Je m'inscris
           </button>
         </div>
+        <button type="button" onClick={closePopUp} className={style.btnclose}>
+          Fermer
+        </button>
       </form>
     </section>
   );

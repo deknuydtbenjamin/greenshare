@@ -2,10 +2,10 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
 import { toast } from "react-toastify";
-import type { UserType } from "../../lib/definitions";
+import type { PopUpType, UserType } from "../../lib/definitions";
 import style from "./connexion.module.css";
 
-export default function Connexion() {
+export default function Connexion({ closePopUp }: PopUpType) {
   const {
     register,
     handleSubmit,
@@ -64,6 +64,9 @@ export default function Connexion() {
           </label>
           <button type="submit" className={style.btn}>
             Se connecter
+          </button>
+          <button type="button" onClick={closePopUp} className={style.btnclose}>
+            Fermer
           </button>
         </form>
       </section>
