@@ -25,8 +25,7 @@ const add: RequestHandler = async (req, res, next) => {
 
 const read: RequestHandler = async (req, res, next) => {
   try {
-    const categoryId = Number(req.params.id);
-    const plantes = await planteRepository.read(categoryId);
+    const plantes = await planteRepository.read();
 
     res.json(plantes);
   } catch (err) {

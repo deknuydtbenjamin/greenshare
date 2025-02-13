@@ -23,13 +23,11 @@ class PlanteRepository {
     );
     return result.insertId;
   }
-  async read(categoryId: number) {
+  async read() {
     const [rows] = await databaseClient.query<Rows>(
       `
-      SELECT * 
-      FROM plante
-      Where category_id`,
-      [categoryId],
+      SELECT *
+      FROM plante`,
     );
     return rows as PlanteType[];
   }
