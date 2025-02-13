@@ -5,8 +5,8 @@ const add: RequestHandler = async (req, res, next) => {
   try {
     const newCommentary = {
       com_content: req.body.com_content,
-      plante_id: req.body.plante_id,
-      user_id: req.body.user_id,
+      plante_id: Number.parseInt(req.body.plante_id),
+      user_id: Number.parseInt(req.body.user_id),
     };
     const insertId = await commentaryRepository.create(newCommentary);
 

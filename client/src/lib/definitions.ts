@@ -29,3 +29,10 @@ export type PlanteType = {
 export type PopUpType = {
   closePopUp?: () => void;
 };
+
+export type CommentaryType = {
+  id: number;
+  com_content: string;
+  plante_id: number;
+  user_id: number;
+};
