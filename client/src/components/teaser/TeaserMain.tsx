@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import type { PlanteType } from "../../lib/definitions";
+import style from "./teaserMain.module.css";
 
 export default function TeaserMain() {
   const [plante, setPlante] = useState<PlanteType[]>([]);
@@ -25,15 +26,15 @@ export default function TeaserMain() {
   }, []);
 
   return (
-    <section>
+    <section className={style.teaser}>
       {plante.map((p) => (
-        <div key={p.id}>
-          <h2>{p.title}</h2>
+        <div key={p.id} className={style.card}>
           <img
             src={`${import.meta.env.VITE_API_URL}/assets/upload/${p.picture}`}
             alt={p.title}
-            // className={style.picture}
+            className={style.picture}
           />
+          <h2 className={style.title}>{p.title}</h2>
         </div>
       ))}
     </section>
