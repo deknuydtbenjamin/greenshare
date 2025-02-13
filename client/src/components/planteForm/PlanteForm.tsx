@@ -13,11 +13,34 @@ export default function PlanteForm() {
     formState: { errors },
   } = useForm<PlanteType>();
 
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
+
+  const handleImage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files) {
+      setSelectedImage(event.target.files[0]);
+    }
+  };
+
   const formSubmit: SubmitHandler<PlanteType> = async (data) => {
+    const formData = new FormData();
+    if (selectedImage) {
+      formData.append("file", selectedImage);
+    }
+    formData.append("title", data.title);
+    formData.append("summary", data.summary);
+    formData.append("category_id", data.category_id.toString());
+    formData.append("watering", data.watering.toString());
+    formData.append("plant_exhibition", data.plant_exhibition.toString());
+
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/api/plantes`,
-        data,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        },
       );
       toast.success(response.data.message);
     } catch (err) {
@@ -48,10 +71,25 @@ export default function PlanteForm() {
     <section className={style.plante}>
       <ToastContainer />
       <form onSubmit={handleSubmit(formSubmit)} className={style.form}>
-        <label className={style.champ}>
-          image
-          <input type="file" {...register("picture")} />
-        </label>
+        <div>
+          {selectedImage && (
+            <img
+              src={URL.createObjectURL(selectedImage)}
+              alt=" preview"
+              width={250}
+              height={400}
+            />
+          )}
+          <label className={style.champ}>
+            <input
+              type="file"
+              accept="image/*"
+              {...register("picture")}
+              onChange={handleImage}
+            />
+          </label>
+        </div>
+
         <section className={style.info}>
           <label className={style.champ}>
             titre
