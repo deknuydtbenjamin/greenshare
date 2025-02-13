@@ -6,4 +6,6 @@ const router = express.Router();
 router.post("/", image.uploadController, planteActions.add);
 router.get("/", planteActions.read);
 
+router.get("/teaser", planteActions.browse);
+
 export default router;
