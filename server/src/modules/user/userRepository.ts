@@ -12,7 +12,7 @@ class userRepository {
             password,
             role_id)
             VALUES 
-            (?,?,?,1)`,
+            (?,?,?,3)`,
       [user.username, user.email, user.password],
     );
     return result.insertId;
@@ -28,6 +28,18 @@ class userRepository {
       [username],
     );
     return rows.length ? (rows[0] as UserType) : null;
+  }
+  async readRoleByUsername(payloadUsername: string) {
+    const [rows] = await databaseClient.query<Rows>(
+      `
+        SELECT role_id
+        FROM user
+        WHERE username = ?
+      `,
+      [payloadUsername],
+    );
+
+    return rows[0].role_id as number;
   }
 }
 

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import type { PopUpType, UserType } from "../../lib/definitions";
 import style from "./connexion.module.css";
@@ -11,6 +12,7 @@ export default function Connexion({ closePopUp }: PopUpType) {
     handleSubmit,
     formState: { errors },
   } = useForm<UserType>();
+  const navigate = useNavigate();
 
   const submitLog: SubmitHandler<UserType> = async (data) => {
     try {
@@ -22,6 +24,9 @@ export default function Connexion({ closePopUp }: PopUpType) {
         },
       );
       toast.success(response.data.message);
+      setTimeout(() => {
+        navigate("/liste-plantes");
+      }, 1000);
     } catch (error) {
       toast.error("Erreur dans la connexion");
     }

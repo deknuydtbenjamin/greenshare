@@ -12,5 +12,10 @@ router.post(
   authActions.login,
 );
 
-router.get("/logout", authActions.logout);
+router.post("/logout", authActions.logout);
+
+router.use(authActions.checkToken, authActions.authWall);
+
+router.get("/adminChecking", userActions.readTokenRoleByUsername);
+
 export default router;

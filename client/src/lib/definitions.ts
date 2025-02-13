@@ -37,3 +37,7 @@ export type CommentaryType = {
   user_id: number;
   username: string;
 };
+
+export type AuthType = {
+  authentified: boolean;
+};

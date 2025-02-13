@@ -1,5 +1,10 @@
 import type { RequestHandler } from "express";
-import type { UserType } from "../../lib/definitions";
+import type {
+  DecodedTokenType,
+  PayloadType,
+  UserType,
+} from "../../lib/definitions";
+import authActions from "../auth/authActions";
 import userRepository from "./userRepository";
 
 const add: RequestHandler = async (req, res, next) => {
@@ -34,4 +39,24 @@ const readPasswordByUserName: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { add, readPasswordByUserName };
+const readTokenRoleByUsername: RequestHandler = async (req, res, next) => {
+  try {
+    const decodedToken = authActions.decodeToken(
+      req.cookies.auth_token,
+    ) as PayloadType;
+
+    const userRole = await userRepository.readRoleByUsername(
+      decodedToken?.username,
+    );
+
+    if (userRole !== 1) {
+      res.json({ authentified: false });
+    } else {
+      res.json({ authentified: true });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { add, readPasswordByUserName, readTokenRoleByUsername };
