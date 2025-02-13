@@ -33,4 +33,14 @@ const read: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { add, read };
+const browse: RequestHandler = async (req, res, next) => {
+  try {
+    const plante = await planteRepository.readDiscovery();
+
+    res.json(plante);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { add, read, browse };

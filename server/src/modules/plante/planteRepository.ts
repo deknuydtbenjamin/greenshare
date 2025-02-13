@@ -32,5 +32,18 @@ class PlanteRepository {
     );
     return rows as PlanteType[];
   }
+
+  async readDiscovery() {
+    const [rows] = await databaseClient.query<Rows>(
+      `
+      SELECT title, picture
+      FROM plante
+      ORDER BY created_at DESC
+      LIMIT 3
+      `,
+    );
+    return rows as PlanteType[];
+  }
 }
+
 export default new PlanteRepository();
