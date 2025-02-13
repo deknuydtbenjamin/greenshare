@@ -1,4 +1,4 @@
-import Header from "../../components/header/Header";
+import Header from "../../components/header/Headerdiscovery";
 
 export default function DiscoveryPage() {
   return <Header />;
