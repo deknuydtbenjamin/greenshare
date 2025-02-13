@@ -22,4 +22,6 @@ import planteRouter from "./routes/plante.routes";
 
 router.use("/api/plantes", planteRouter);
 
+router.use(express.static("public/assets/upload/"));
+
 export default router;
