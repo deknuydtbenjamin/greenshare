@@ -35,3 +35,9 @@ export type CommentaryType = {
   plante_id: number;
   user_id: number;
 };
+
+export type DecodedTokenType = {
+  username: string;
+  iat: number;
+  exp: number;
+};
