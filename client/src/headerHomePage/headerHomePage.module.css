@@ -1,0 +1,41 @@
+.nav {
+  background-color: #f1ece2;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  align-items: center;
+}
+.bouton {
+  gap: 2em;
+  display: flex;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #90a68b;
+  height: 2.5em;
+  width: 10em;
+  color: white;
+  cursor: pointer;
+  border-radius: 1em;
+  margin: 1em;
+  text-decoration: none;
+}
+.logo {
+  border-radius: 50em;
+  height: 4.5em;
+}
+
+.header {
+  background-image: url("/image/background.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 30em;
+}
+.title {
+  color: white;
+  font-size: 4em;
+  text-align: center;
+  margin-top: 1em;
+}
