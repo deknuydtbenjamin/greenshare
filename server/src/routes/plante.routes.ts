@@ -4,5 +4,6 @@ import planteActions from "../modules/plante/planteActions";
 const router = express.Router();
 
 router.post("/", image.uploadController, planteActions.add);
+router.get("/", planteActions.read);
 
 export default router;

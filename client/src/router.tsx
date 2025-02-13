@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Category from "./components/category/Category";
+import PlanteCard from "./components/planteCard/PlanteCard";
 import PlanteForm from "./components/planteForm/PlanteForm";
 import Role from "./components/role/Role";
 import AdminPage from "./pages/adminpage/AdminPage";
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
       {
         path: "/creerplante",
         element: <PlanteForm />,
+      },
+      {
+        path: "/liste-plantes",
+        element: <PlanteCard />,
       },
     ],
   },
