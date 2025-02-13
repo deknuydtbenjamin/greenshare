@@ -28,3 +28,10 @@ export type PlanteType = {
   category_id: number;
   user_id: number;
 };
+
+export type CommentaryType = {
+  id: number;
+  com_content: string;
+  plante_id: number;
+  user_id: number;
+};

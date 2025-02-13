@@ -22,6 +22,10 @@ import planteRouter from "./routes/plante.routes";
 
 router.use("/api/plantes", planteRouter);
 
+import commentaryRouter from "./routes/commentary.routes";
+
+router.use("/api/commentary", commentaryRouter);
+
 router.use(express.static("public/assets/upload/"));
 
 export default router;

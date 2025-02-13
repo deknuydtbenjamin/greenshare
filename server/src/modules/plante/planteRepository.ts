@@ -27,7 +27,8 @@ class PlanteRepository {
     const [rows] = await databaseClient.query<Rows>(
       `
       SELECT *
-      FROM plante`,
+      FROM plante
+      ORDER BY created_at DESC`,
     );
     return rows as PlanteType[];
   }

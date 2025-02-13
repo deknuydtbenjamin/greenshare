@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import type { PlanteType } from "../../lib/definitions";
+import Commentary from "../commentary/Commentary";
 import style from "./planteCard.module.css";
 
 export default function PlanteCard() {
@@ -47,6 +48,7 @@ export default function PlanteCard() {
               <p> Exposition:{expositionemoji[p.plant_exhibition as number]}</p>
             </div>
             <p>{p.summary} </p>
+            <Commentary planteId={p.id} />
           </section>
         </div>
       ))}
