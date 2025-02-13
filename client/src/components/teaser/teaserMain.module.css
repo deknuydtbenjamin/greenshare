@@ -1,20 +1,3 @@
-/* .picture {
-  height: auto;
-  width: 150px;
-}
-
-.card {
-  display: flex;
-  flex-direction: column-reverse;
-  height: 500px;
-  width: 400px;
-  background-color: #f1ece2;
-}
-.teaser {
-  display: flex;
-  justify-content: center;
-  gap: 2em;
-} */
 .teaser {
   display: flex;
   justify-content: center;
