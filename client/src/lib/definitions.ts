@@ -35,4 +35,5 @@ export type CommentaryType = {
   com_content: string;
   plante_id: number;
   user_id: number;
+  username: string;
 };

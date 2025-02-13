@@ -18,5 +18,15 @@ const add: RequestHandler = async (req, res, next) => {
     next(err);
   }
 };
+const browse: RequestHandler = async (req, res, next) => {
+  try {
+    const { planteId } = req.params;
+    const commentary = await commentaryRepository.read(Number(planteId));
 
-export default { add };
+    res.json(commentary);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { add, browse };

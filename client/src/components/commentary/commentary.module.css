@@ -1,7 +1,20 @@
 .com {
   display: flex;
-  flex-direction: column;
 }
+.compost {
+  background-color: #e3dcce;
+  padding: 0.6em;
+  margin-top: 1em;
+  border-radius: 1em;
+  max-width: fit-content;
+  height: auto;
+}
+.post {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
 .text {
   background-color: white;
   box-shadow: inset 0px 0px 4px rgb(66, 66, 66);
@@ -26,4 +39,7 @@
 .form {
   display: flex;
   flex-direction: column;
+}
+.user {
+  color: #90a68b;
 }
