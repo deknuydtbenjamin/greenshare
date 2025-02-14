@@ -22,4 +22,12 @@ const browse: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { add, browse };
+const destroy: RequestHandler = async (req, res, next) => {
+  try {
+    const categoryId = Number(req.params.id);
+    await categoryRepository.delete(categoryId);
+    res.sendStatus(204);
+  } catch (error) {}
+};
+
+export default { add, browse, destroy };

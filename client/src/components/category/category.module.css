@@ -30,3 +30,29 @@
   border-radius: 1em;
   margin-top: 1em;
 }
+
+.card {
+  margin-top: 1em;
+  display: flex;
+  gap: 2em;
+}
+
+.cartrole {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f1ece2;
+  padding: 1em;
+  border-radius: 1em;
+}
+
+.btndelete {
+  background-color: rgb(113, 0, 0);
+  border: none;
+  height: 2em;
+  width: 10em;
+  color: white;
+  cursor: pointer;
+  border-radius: 1em;
+  margin-top: 1em;
+}

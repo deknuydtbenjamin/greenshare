@@ -7,7 +7,7 @@ class CommentaryRepository {
     const [result] = await databaseClient.query<Result>(
       `
             INSERT INTO commentary(com_content, plante_id, user_id)
-            VALUE (?,?,1)
+            VALUE (?,?,2)
             `,
       [commentary.com_content, commentary.plante_id, commentary.user_id],
     );

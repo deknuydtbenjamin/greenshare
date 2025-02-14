@@ -6,5 +6,6 @@ const router = express.Router();
 router.post("/", categoryActions.add);
 
 router.get("/", categoryActions.browse);
+router.delete("/:id", categoryActions.destroy);
 
 export default router;

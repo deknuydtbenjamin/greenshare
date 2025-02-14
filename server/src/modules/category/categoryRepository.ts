@@ -22,5 +22,15 @@ class CategoryRepository {
     );
     return rows as CategoryType[];
   }
+  async delete(id: number) {
+    const [result] = await databaseClient.query<Result>(
+      `
+        DELETE FROM category
+        WHERE id = ?
+        `,
+      [id],
+    );
+    return result.affectedRows;
+  }
 }
 export default new CategoryRepository();

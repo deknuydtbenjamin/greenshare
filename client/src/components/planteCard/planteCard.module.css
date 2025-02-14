@@ -14,7 +14,8 @@
 }
 .info {
   display: flex;
-  gap: 2em;
+  align-items: flex-end;
+  gap: 5em;
 }
 .planteCard {
   gap: 2em;
