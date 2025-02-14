@@ -31,6 +31,14 @@ export default function PlanteCard() {
     3: "☁️",
   };
 
+  const categorie: Record<number, string> = {
+    1: "Tropical",
+    2: "Exterieur",
+    3: "Interieur",
+    5: "Plante aromatique",
+    6: "Plante succulente",
+  };
+
   return (
     <section className={style.planteCard}>
       {plante.map((p) => (
@@ -43,7 +51,7 @@ export default function PlanteCard() {
           <section className={style.infocard}>
             <h2>{p.title}</h2>
             <div className={style.info}>
-              <p> Categorie:{p.category_id}</p>
+              <p>Categorie {categorie[p.category_id as number]}</p>
               <p>Arrosage: {wateringemoji[p.watering as number]}</p>
               <p> Exposition:{expositionemoji[p.plant_exhibition as number]}</p>
             </div>
