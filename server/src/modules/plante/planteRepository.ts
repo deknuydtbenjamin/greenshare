@@ -44,6 +44,17 @@ class PlanteRepository {
     );
     return rows as PlanteType[];
   }
+
+  async readAdmin() {
+    const [rows] = await databaseClient.query<Rows>(
+      `
+      SELECT id, title, created_at
+      FROM plante
+      ORDER BY created_at DESC
+      `,
+    );
+    return rows as PlanteType[];
+  }
 }
 
 export default new PlanteRepository();
