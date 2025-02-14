@@ -12,7 +12,6 @@ export default function Category() {
     handleSubmit,
     formState: { errors },
   } = useForm<CategoryType>();
-  // const [categories, setCategories] = useState<CategoryType[]>([]);
 
   const formSubmit: SubmitHandler<CategoryType> = async (data) => {
     try {
@@ -55,6 +54,16 @@ export default function Category() {
       toast.error("Erreur lors de la suppression.");
     }
   };
+  const editSubmit: SubmitHandler<CategoryType> = async (categoryId) => {
+    try {
+      const response = await axios.put(
+        `${import.meta.env.VITE_API_URL}/api/category/${categoryId}`,
+      );
+      toast.success(response.data.message, {});
+    } catch (err) {
+      toast.error("Erreur lors de la mise à jour de la catégorie", {});
+    }
+  };
 
   return (
     <section>
@@ -95,6 +104,13 @@ export default function Category() {
               onClick={() => handleDelete(c.id)}
             >
               Supprimer le role
+            </button>
+            <button
+              type="button"
+              className={style.btnedit}
+              onClick={() => editSubmit(c)}
+            >
+              Modifier
             </button>
           </div>
         ))}
