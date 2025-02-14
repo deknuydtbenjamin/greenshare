@@ -12,6 +12,7 @@ export default function Category() {
     handleSubmit,
     formState: { errors },
   } = useForm<CategoryType>();
+  // const [categories, setCategories] = useState<CategoryType[]>([]);
 
   const formSubmit: SubmitHandler<CategoryType> = async (data) => {
     try {
@@ -41,6 +42,19 @@ export default function Category() {
     };
     fetchData();
   }, []);
+  const handleDelete = async (categoryId: number) => {
+    try {
+      await axios.delete(
+        `${import.meta.env.VITE_API_URL}/api/category/${categoryId}`,
+      );
+      setCategory((previousCategory) =>
+        previousCategory.filter((category) => category.id !== categoryId),
+      );
+      toast.success("category supprimée avec succès !");
+    } catch (error) {
+      toast.error("Erreur lors de la suppression.");
+    }
+  };
 
   return (
     <section>
@@ -75,6 +89,13 @@ export default function Category() {
         {category.map((c) => (
           <div key={c.id} className={style.cartrole}>
             <p>{c.label}</p>
+            <button
+              type="button"
+              className={style.btndelete}
+              onClick={() => handleDelete(c.id)}
+            >
+              Supprimer le role
+            </button>
           </div>
         ))}
       </section>

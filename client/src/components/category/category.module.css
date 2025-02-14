@@ -45,3 +45,14 @@
   padding: 1em;
   border-radius: 1em;
 }
+
+.btndelete {
+  background-color: rgb(113, 0, 0);
+  border: none;
+  height: 2em;
+  width: 10em;
+  color: white;
+  cursor: pointer;
+  border-radius: 1em;
+  margin-top: 1em;
+}
