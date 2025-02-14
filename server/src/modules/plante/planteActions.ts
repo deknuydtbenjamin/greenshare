@@ -52,5 +52,12 @@ const readAdmin: RequestHandler = async (req, res, next) => {
     next(err);
   }
 };
+const destroy: RequestHandler = async (req, res, next) => {
+  try {
+    const planteId = Number(req.params.id);
+    await planteRepository.delete(planteId);
+    res.sendStatus(204);
+  } catch (error) {}
+};
 
-export default { add, read, browse, readAdmin };
+export default { add, read, browse, readAdmin, destroy };

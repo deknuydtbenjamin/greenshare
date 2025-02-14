@@ -55,6 +55,16 @@ class PlanteRepository {
     );
     return rows as PlanteType[];
   }
+  async delete(id: number) {
+    const [result] = await databaseClient.query<Result>(
+      `
+        DELETE FROM plante
+        WHERE id = ?
+        `,
+      [id],
+    );
+    return result.affectedRows;
+  }
 }
 
 export default new PlanteRepository();
