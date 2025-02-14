@@ -11,6 +11,9 @@ export default function AdminHeader() {
         <Link to="/admin/categorie" className={style.btn}>
           Catégorie
         </Link>
+        <Link to="/admin/plante" className={style.btn}>
+          Plantes
+        </Link>
       </nav>
     </header>
   );

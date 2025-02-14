@@ -41,3 +41,9 @@ export type CommentaryType = {
 export type AuthType = {
   authentified: boolean;
 };
+
+export type PlanteAdminType = {
+  id: number;
+  title: string;
+  created_at: string;
+};
