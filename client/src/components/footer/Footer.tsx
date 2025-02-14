@@ -30,7 +30,6 @@ export default function Footer() {
       </section>
       <div className={style.mention}>
         <p>Mentions légales et CGU </p>
-        <p>&copy; B.Deknuydt </p>
       </div>
     </footer>
   );

@@ -33,5 +33,15 @@
   color: white;
   font-size: 4em;
   text-align: center;
-  margin-top: 1em;
+  margin-top: 2em;
+}
+.conseil {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.text {
+  margin-top: 6em;
+  font-size: 1.5em;
 }

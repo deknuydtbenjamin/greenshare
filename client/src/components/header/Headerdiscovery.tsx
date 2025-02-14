@@ -41,8 +41,12 @@ export default function Header() {
           {isRegistrer && <Registrer closePopUp={closeRegistrer} />}
         </section>
       </nav>
-      <section>
+      <section className={style.conseil}>
         <h1 className={style.title}>GREENSHARE</h1>
+        <p className={style.text}>
+          Communauté dédiée au partage, à l'échange de plantes et aux conseils
+          entre passionnés
+        </p>
       </section>
     </header>
   );
