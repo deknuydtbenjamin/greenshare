@@ -43,4 +43,21 @@ const browse: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { add, read, browse };
+const readAdmin: RequestHandler = async (req, res, next) => {
+  try {
+    const plante = await planteRepository.readAdmin();
+
+    res.json(plante);
+  } catch (err) {
+    next(err);
+  }
+};
+const destroy: RequestHandler = async (req, res, next) => {
+  try {
+    const planteId = Number(req.params.id);
+    await planteRepository.delete(planteId);
+    res.sendStatus(204);
+  } catch (error) {}
+};
+
+export default { add, read, browse, readAdmin, destroy };

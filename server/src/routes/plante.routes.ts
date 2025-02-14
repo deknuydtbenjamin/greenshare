@@ -7,5 +7,7 @@ router.post("/", image.uploadController, planteActions.add);
 router.get("/", planteActions.read);
 
 router.get("/teaser", planteActions.browse);
+router.get("/admin", planteActions.readAdmin);
+router.delete("/:id", planteActions.destroy);
 
 export default router;

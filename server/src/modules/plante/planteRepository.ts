@@ -44,6 +44,27 @@ class PlanteRepository {
     );
     return rows as PlanteType[];
   }
+
+  async readAdmin() {
+    const [rows] = await databaseClient.query<Rows>(
+      `
+      SELECT id, title, created_at
+      FROM plante
+      ORDER BY created_at DESC
+      `,
+    );
+    return rows as PlanteType[];
+  }
+  async delete(id: number) {
+    const [result] = await databaseClient.query<Result>(
+      `
+        DELETE FROM plante
+        WHERE id = ?
+        `,
+      [id],
+    );
+    return result.affectedRows;
+  }
 }
 
 export default new PlanteRepository();
