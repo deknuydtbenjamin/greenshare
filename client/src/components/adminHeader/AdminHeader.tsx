@@ -3,7 +3,7 @@ import style from "./adminHeader.module.css";
 
 export default function AdminHeader() {
   return (
-    <header>
+    <header className={style.header}>
       <nav className={style.nav}>
         <Link to="/admin/role" className={style.btn}>
           Role
@@ -15,6 +15,9 @@ export default function AdminHeader() {
           Plantes
         </Link>
       </nav>
+      <section>
+        <h1 className={style.title}>GREENSHARE</h1>
+      </section>
     </header>
   );
 }

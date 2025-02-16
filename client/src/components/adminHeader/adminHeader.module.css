@@ -20,3 +20,15 @@
   margin: 1em;
   text-decoration: none;
 }
+.header {
+  background-image: url("/image/background.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 30em;
+}
+.title {
+  color: white;
+  font-size: 4em;
+  text-align: center;
+  margin-top: 1em;
+}

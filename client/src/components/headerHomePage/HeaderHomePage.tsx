@@ -17,9 +17,6 @@ export default function HeaderHomePage() {
           <Link to="/creerplante" className={style.btn}>
             Ajouter une plante
           </Link>
-          <Link to="/profil" className={style.btn}>
-            Profil
-          </Link>
         </section>
       </nav>
       <section>

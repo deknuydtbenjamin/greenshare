@@ -45,17 +45,17 @@ export default function Role() {
     fetchData();
   }, []);
 
-  const handleDelete = async (roleId: number) => {
-    try {
-      await axios.delete(`${import.meta.env.VITE_API_URL}/api/roles/${roleId}`);
+  // const handleDelete = async (roleId: number) => {
+  //   try {
+  //     await axios.delete(`${import.meta.env.VITE_API_URL}/api/roles/${roleId}`);
 
-      toast.success("Role supprimée avec succès !");
-    } catch (error) {
-      toast.error(
-        "Erreur lors de la suppression, veuillez réesayer plus tard.",
-      );
-    }
-  };
+  //     toast.success("Role supprimée avec succès !");
+  //   } catch (error) {
+  //     toast.error(
+  //       "Erreur lors de la suppression, veuillez réesayer plus tard.",
+  //     );
+  //   }
+  // };
 
   return (
     <section>
@@ -92,13 +92,13 @@ export default function Role() {
         {role.map((r) => (
           <div key={r.id} className={style.cartrole}>
             <p>{r.label}</p>
-            <button
+            {/* <button
               type="button"
               className={style.btndelete}
               onClick={() => handleDelete(r.id)}
             >
               Supprimer le role
-            </button>
+            </button> */}
           </div>
         ))}
       </section>
