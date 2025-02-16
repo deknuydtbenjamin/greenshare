@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import type { CategoryType, PlanteType } from "../../lib/definitions";
 import style from "./planteForm.module.css";
@@ -43,12 +44,15 @@ export default function PlanteForm() {
         },
       );
       toast.success(response.data.message);
+      setTimeout(() => {
+        navigate("/liste-plantes");
+      }, 1000);
     } catch (err) {
       toast.error("Réessayer plus tard");
     }
   };
   const [category, setCategory] = useState<CategoryType[]>([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -69,6 +73,7 @@ export default function PlanteForm() {
 
   return (
     <section className={style.plante}>
+      <h2>Ajouter une plante</h2>
       <ToastContainer />
       <form onSubmit={handleSubmit(formSubmit)} className={style.form}>
         <div>

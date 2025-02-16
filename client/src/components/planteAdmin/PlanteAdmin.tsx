@@ -25,6 +25,9 @@ export default function PlanteAdmin() {
       await axios.delete(
         `${import.meta.env.VITE_API_URL}/api/plantes/${planteId}`,
       );
+      setPlante((previousPlante) =>
+        previousPlante.filter((plante) => plante.id !== planteId),
+      );
 
       toast.success("plante supprimée avec succès !");
     } catch (error) {

@@ -49,11 +49,22 @@ export default function PlanteCard() {
             className={style.picture}
           />
           <section className={style.infocard}>
-            <h2>{p.title}</h2>
+            <h2 className={style.title}>{p.title}</h2>
             <div className={style.info}>
-              <p>Categorie {categorie[p.category_id as number]}</p>
-              <p>Arrosage: {wateringemoji[p.watering as number]}</p>
-              <p> Exposition:{expositionemoji[p.plant_exhibition as number]}</p>
+              <p>
+                <span className={style.categori}>Categorie:</span>{" "}
+                {categorie[p.category_id as number]}
+              </p>
+              <p>
+                {" "}
+                <span className={style.categori}>Arrosage: </span>
+                {wateringemoji[p.watering as number]}
+              </p>
+              <p>
+                {" "}
+                <span className={style.categori}>Exposition: </span>
+                {expositionemoji[p.plant_exhibition as number]}
+              </p>
             </div>
             <p>{p.summary} </p>
             <Commentary planteId={p.id} />
