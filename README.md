@@ -1,3 +1,4 @@
+
 # GreenShare 🌱  
 
 GreenShare est un site communautaire dédié aux passionnés de plantes. Il permet aux utilisateurs de partager leurs plantes, d’échanger des conseils, et de se connecter autour de leur amour pour la nature.  
@@ -49,3 +50,6 @@ cd ../server npm install
 Lancement du projet :
 
 npm run dev
+
+# greenshare
+
