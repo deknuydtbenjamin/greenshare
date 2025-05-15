@@ -1,0 +1,70 @@
+import { pl } from "@faker-js/faker/.";
+import databaseClient from "../../../database/client";
+
+import type { Result, Rows } from "../../../database/client";
+import type { PlanteType } from "../../lib/definitions";
+
+class PlanteRepository {
+  async create(plante: Omit<PlanteType, "id">) {
+    const [result] = await databaseClient.query<Result>(
+      `
+            INSERT INTO plante (title, picture, summary, watering, plant_exhibition, category_id, user_id)
+            VALUE(?,?,?,?,?,?,?)
+            `,
+      [
+        plante.title,
+        plante.picture,
+        plante.summary,
+        plante.watering,
+        plante.plant_exhibition,
+        plante.category_id,
+        1,
+      ],
+    );
+    return result.insertId;
+  }
+  async read() {
+    const [rows] = await databaseClient.query<Rows>(
+      `
+      SELECT *
+      FROM plante
+      ORDER BY created_at DESC`,
+    );
+    return rows as PlanteType[];
+  }
+
+  async readDiscovery() {
+    const [rows] = await databaseClient.query<Rows>(
+      `
+      SELECT title, picture
+      FROM plante
+      ORDER BY created_at DESC
+      LIMIT 3
+      `,
+    );
+    return rows as PlanteType[];
+  }
+
+  async readAdmin() {
+    const [rows] = await databaseClient.query<Rows>(
+      `
+      SELECT id, title, created_at
+      FROM plante
+      ORDER BY created_at DESC
+      `,
+    );
+    return rows as PlanteType[];
+  }
+  async delete(id: number) {
+    const [result] = await databaseClient.query<Result>(
+      `
+        DELETE FROM plante
+        WHERE id = ?
+        `,
+      [id],
+    );
+    return result.affectedRows;
+  }
+}
+
+export default new PlanteRepository();

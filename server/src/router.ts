@@ -2,17 +2,30 @@ import express from "express";
 
 const router = express.Router();
 
-/* ************************************************************************* */
-// Define Your API Routes Here
-/* ************************************************************************* */
+import userRouter from "./routes/user.routes";
 
-// Define item-related routes
-import itemActions from "./modules/item/itemActions";
+router.use("/api/users", userRouter);
 
-router.get("/api/items", itemActions.browse);
-router.get("/api/items/:id", itemActions.read);
-router.post("/api/items", itemActions.add);
+import authRouter from "./routes/auth.routes";
 
-/* ************************************************************************* */
+router.use("/api/auth", authRouter);
+
+import roleRouter from "./routes/role.routes";
+
+router.use("/api/roles", roleRouter);
+
+import categoryRouter from "./routes/category.routes";
+
+router.use("/api/category", categoryRouter);
+
+import planteRouter from "./routes/plante.routes";
+
+router.use("/api/plantes", planteRouter);
+
+import commentaryRouter from "./routes/commentary.routes";
+
+router.use("/api/commentary", commentaryRouter);
+
+router.use(express.static("public/assets/upload/"));
 
 export default router;
